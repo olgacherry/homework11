@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Main {
     public static void checkCurrentYear() {
         int currentYear = 2023;
@@ -23,29 +25,29 @@ public class Main {
         }
     }
 
-    public static void daysOfDelivery() {
+    public static void checkDaysOfDelivery() {
         int deliveryDistance = 95;
-        int time1 = 1;
-        int time2 = time1 + 1;
-        int time3 = time2 + 1;
-        if (deliveryDistance < 20) {
-            System.out.println("Потребуется дней: " + time1);
-        } else if (deliveryDistance > 20 && deliveryDistance < 60) {
-            System.out.println("Потребуется дней: " + time2);
-        } else if (deliveryDistance > 60 && deliveryDistance < 100) {
-            System.out.println("Потребуется дней: " + time3);
+        int daysOfDelivery = 1;
+
+        if (deliveryDistance > 20 && deliveryDistance < 60) {
+            daysOfDelivery++;
+            System.out.println("Потребуется дней " + daysOfDelivery);
+        }
+        if (deliveryDistance > 60 && deliveryDistance < 100) {
+            daysOfDelivery++;
+            System.out.println("Потребуется дней " + ++daysOfDelivery);
         } else {
-            System.out.println("Свыше 100 км доставки нет");
+            System.out.println("Доставка не осуществляется");
         }
     }
-        public static void main (String[]args){
+    public static void main (String[]args){
 
             System.out.println("Задание 1");
             checkCurrentYear();
             System.out.println("Задание 2");
             checkClientOSAndClientDeviceYear();
             System.out.println("Задание 3");
-            daysOfDelivery();
+            checkDaysOfDelivery();
         }
     }
 
